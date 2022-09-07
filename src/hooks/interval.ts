@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 type Control = {
   start: () => void;
   stop: () => void;
+  reset: () => void;
 };
 
 type State = 'RUNNING' | 'STOPPED';
@@ -20,6 +21,10 @@ export const useInterval = (fn: Fn, interval: number, autostart = true): [State,
   const stop = () => {
     setState('STOPPED');
   };
+
+  const reset = () => {
+    
+  }
 
   useEffect(() => {
     onUpdateRef.current = fn;
@@ -44,8 +49,8 @@ export const useInterval = (fn: Fn, interval: number, autostart = true): [State,
       timerId && clearInterval(timerId);
     };
   }, [interval, state]);
-  
-  return [state, { start, stop }];
+
+  return [state, { start, stop, reset }];
 };
 
 export default useInterval;

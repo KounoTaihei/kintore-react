@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <main>
+    <main className='min-h-screen'>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<App />} />
