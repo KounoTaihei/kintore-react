@@ -14,7 +14,7 @@ function App() {
   const [ currentTimer, setCurrentTimer ] = useState<Timer | null>(exampleTimer);
 
   return (
-    <div className="App">
+    <div className="p-8">
       <CircularProgressbar
         maxValue={1}
         value={6 / 20}
