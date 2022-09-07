@@ -1,28 +1,30 @@
-import { useState } from 'react';
-import { useTimer } from 'use-timer';
+import { useEffect, useState } from 'react';
 import './App.scss';
 import { Timer } from '../types/types';
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
+
+const exampleTimer: Timer = {
+  training: 20,
+  rest: 10,
+  repeat: 3
+}
 
 function App() {
-  const { time, start, pause, reset, status } = useTimer();
-  const [ currentTimer, setCurrentTimer ] = useState<Timer | null>(null);
-
-  function start_timer () {
-    const training = () => {}
-    const rest = () => {}
-  }
+  const [ currentTimer, setCurrentTimer ] = useState<Timer | null>(exampleTimer);
 
   return (
     <div className="App">
-      <div>
-            <div>
-                <button onClick={start}>Start</button>
-                <button onClick={pause}>Pause</button>
-                <button onClick={reset}>Reset</button>
-            </div>
-            <p>Elapsed time: {time}</p>
-            {status === 'RUNNING' && <p>Running...</p>}
-      </div>
+      <CircularProgressbar
+        maxValue={1}
+        value={6 / 20}
+        text="65"
+        strokeWidth={6}
+        styles={buildStyles({
+          pathColor: "pink",
+          textColor: "pink",
+        })}
+      />
     </div>
   );
 }

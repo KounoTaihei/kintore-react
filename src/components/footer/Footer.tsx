@@ -8,7 +8,7 @@ function Footer () {
 
     return (
         <footer>
-            <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, paddingBottom: '0.7rem' }} elevation={3}>
+            <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, paddingBottom: '0.3rem' }} elevation={3}>
                 <BottomNavigation
                     showLabels
                     value={value}
